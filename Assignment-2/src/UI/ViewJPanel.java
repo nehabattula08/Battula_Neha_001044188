@@ -77,6 +77,9 @@ public class ViewJPanel extends javax.swing.JPanel {
         carAvailability = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
+        RegisterjLabel.setBackground(new java.awt.Color(204, 255, 255));
         RegisterjLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         RegisterjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RegisterjLabel.setText("     View Car Details");

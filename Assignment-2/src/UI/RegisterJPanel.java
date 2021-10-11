@@ -84,6 +84,8 @@ public class RegisterJPanel extends javax.swing.JPanel {
         JDateExp = new com.toedter.calendar.JDateChooser();
         btnUploadFile = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 255, 255));
+
         RegisterjLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         RegisterjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         RegisterjLabel.setText("     Register Car Details");
