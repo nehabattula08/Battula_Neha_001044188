@@ -34,7 +34,24 @@ public class UberCar {
     private String modelNumber;
     private List<String> availableCities;
     private Date maintenanceCertDate;
-    
+    private String filePath;
+    //private String whetherExpired;
+
+    public String getFilePath() {
+        return filePath;
+    }
+
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+
+//    public String getWhetherExpired() {
+//        return whetherExpired;
+//    }
+//
+//    public void setWhetherExpired(String whetherExpired) {
+//        this.whetherExpired = whetherExpired;
+//    }
 
     public String getIsPassengerCarAvailable() {
         return isPassengerCarAvailable;

@@ -5,6 +5,7 @@
  */
 package UI;
 
+import model.UberCar;
 import model.UberList;
 
 /**
@@ -17,6 +18,7 @@ public class CarMainJFrame extends javax.swing.JFrame {
      * Creates new form CarMainJFrame
      */
     UberList cars;
+    UberCar uCar;
     public CarMainJFrame() {
         initComponents();
         cars= new UberList();
@@ -119,7 +121,7 @@ public class CarMainJFrame extends javax.swing.JFrame {
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
         
-         RegisterJPanel createPanel = new RegisterJPanel(cars);
+         RegisterJPanel createPanel = new RegisterJPanel(cars,uCar);
          jSplitPane1.setRightComponent(createPanel);
          
         

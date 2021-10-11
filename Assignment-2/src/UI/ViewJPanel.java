@@ -6,6 +6,7 @@
 package UI;
 
 import com.toedter.calendar.JYearChooser;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -89,13 +90,16 @@ public class ViewJPanel extends javax.swing.JPanel {
             new String [] {
                 "Car Name", "Car Manufacturer", "Passenger Car Availability", "Car Availability", "Manufacturer Year", "No. Of Seats", "Serial Number", "Model Number", "Maintenance Certificate Date", "Car Available in Cities"
             }
-        ) {
+        )
+
+        {
             boolean[] canEdit = new boolean [] {
                 false, false, false, false, false, false, false, false, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+                //return canEdit [columnIndex];
+                return false;
             }
         });
         tblCars.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -473,8 +477,11 @@ public class ViewJPanel extends javax.swing.JPanel {
        
         car2.setAvailableCities(availCities); 
         cars.getCars().set(tblCars.getSelectedRow(), car2);
-           
-        populateTable();
+        
+       
+        populateTable(); 
+        LocalDateTime now= LocalDateTime.now();  
+        cars.setCurr_dt(now); 
         //combo box.
        
        

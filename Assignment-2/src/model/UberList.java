@@ -5,7 +5,9 @@
  */
 package model;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -14,6 +16,15 @@ import java.util.ArrayList;
 public class UberList {
    
     private ArrayList<UberCar> cars;
+    private LocalDateTime curr_dt;
+
+    public LocalDateTime getCurr_dt() {
+        return curr_dt;
+    }
+
+    public void setCurr_dt(LocalDateTime curr_dt) {
+        this.curr_dt = curr_dt;
+    }
     public UberList(){
          this.cars = new ArrayList<UberCar>();
     }

@@ -191,19 +191,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="tblCars">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="10" rowCount="2">
-                <Column editable="false" title="Car Name" type="java.lang.Object"/>
-                <Column editable="false" title="Car Manufacturer" type="java.lang.Object"/>
-                <Column editable="false" title="Passenger Car Availability" type="java.lang.Object"/>
-                <Column editable="false" title="Car Availability" type="java.lang.Object"/>
-                <Column editable="false" title="Manufacturer Year" type="java.lang.Object"/>
-                <Column editable="false" title="No. Of Seats" type="java.lang.Object"/>
-                <Column editable="false" title="Serial Number" type="java.lang.Object"/>
-                <Column editable="false" title="Model Number" type="java.lang.Object"/>
-                <Column editable="true" title="Maintenance Certificate Date" type="java.lang.Object"/>
-                <Column editable="false" title="Car Available in Cities" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.table.DefaultTableModel(&#xa;    new Object [][] {&#xa;        {null, null, null, null, null, null, null, null, null, null},&#xa;        {null, null, null, null, null, null, null, null, null, null}&#xa;    },&#xa;    new String [] {&#xa;        &quot;Car Name&quot;, &quot;Car Manufacturer&quot;, &quot;Passenger Car Availability&quot;, &quot;Car Availability&quot;, &quot;Manufacturer Year&quot;, &quot;No. Of Seats&quot;, &quot;Serial Number&quot;, &quot;Model Number&quot;, &quot;Maintenance Certificate Date&quot;, &quot;Car Available in Cities&quot;&#xa;    }&#xa;)&#xa;&#xa;  &#xa;&#xa;{&#xa;    boolean[] canEdit = new boolean [] {&#xa;        false, false, false, false, false, false, false, false, true, false&#xa;    };&#xa;&#xa;    public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;        //return canEdit [columnIndex];&#xa;        return false;&#xa;    }&#xa;}" type="code"/>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">

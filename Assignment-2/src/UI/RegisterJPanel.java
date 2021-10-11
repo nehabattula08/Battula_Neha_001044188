@@ -7,9 +7,17 @@ package UI;
 
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 import java.util.List;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import model.UberCar;
 
@@ -26,11 +34,13 @@ public class RegisterJPanel extends javax.swing.JPanel {
      * Creates new form CreateJPanel
      */
     UberList cars;
-    public RegisterJPanel(UberList cars) {
+    UberCar uCar;
+    UberCar ucar1=new UberCar();
+    public RegisterJPanel(UberList cars,UberCar uCar) {
        
         initComponents();
          this.cars=cars;
-        
+         this.uCar=uCar;
     }
 
     /**
@@ -72,6 +82,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         DallasCheckBox = new javax.swing.JCheckBox();
         OregonCheckBox = new javax.swing.JCheckBox();
         JDateExp = new com.toedter.calendar.JDateChooser();
+        btnUploadFile = new javax.swing.JButton();
 
         RegisterjLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         RegisterjLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -183,6 +194,14 @@ public class RegisterJPanel extends javax.swing.JPanel {
 
         OregonCheckBox.setText("Oregon");
 
+        btnUploadFile.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        btnUploadFile.setText("Upload");
+        btnUploadFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUploadFileActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -235,22 +254,25 @@ public class RegisterJPanel extends javax.swing.JPanel {
                                     .addComponent(modelComboBox, 0, 165, Short.MAX_VALUE)
                                     .addComponent(JDateExp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(23, 23, 23)
-                                .addComponent(DallasCheckBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(OregonCheckBox)))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(btnUploadFile)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(DallasCheckBox)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(OregonCheckBox)))))
+                        .addGap(0, 154, Short.MAX_VALUE))))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(RegisterjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(274, 274, 274)
-                                .addComponent(Submit))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(224, 224, 224)
-                                .addComponent(txtCarName, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 313, Short.MAX_VALUE))
-                    .addComponent(RegisterjLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addComponent(txtCarName, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(274, 274, 274)
+                                .addComponent(Submit)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -306,7 +328,9 @@ public class RegisterJPanel extends javax.swing.JPanel {
                     .addComponent(jButton2)
                     .addComponent(JDateExp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addComponent(Submit)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Submit)
+                    .addComponent(btnUploadFile))
                 .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -336,63 +360,114 @@ public class RegisterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
       try{  
        UberCar car1= cars.addNewCar();
-       car1.setCarName(txtCarName.getText());
-       car1.setCarManufacture(txtCarManufacturer.getText());
+       int flag=1;
        
-        
+       if((txtCarName.getText()==null)|| (txtCarName.getText().trim().isEmpty())){
+           JOptionPane.showMessageDialog(null,"Please enter a valid car name");   
+           flag=0;
+       }
+       
+       if((txtCarManufacturer.getText()==null)|| (txtCarManufacturer.getText().trim().isEmpty())){
+           JOptionPane.showMessageDialog(null,"Please enter a valid car manufacturer");   
+           flag=0;
+       }
+       
+       
        
        List<String> availableCities = new ArrayList<>();
-       if(BostonCheckBox.isSelected()==true){
-          availableCities.add("Boston");
-       } 
+       //check box validation
+       if(BostonCheckBox.isEnabled()==false&&NewJerseyCheckBox.isEnabled()==false&&DallasCheckBox.isEnabled()==false
+               &&OregonCheckBox.isEnabled()==false){
+             JOptionPane.showMessageDialog(null,"Please enable atleast 1 check box");   
+             flag=0;
+       }
        
-       if(NewJerseyCheckBox.isSelected()==true){
+       else{
+        if(BostonCheckBox.isSelected()==true){
+              availableCities.add("Boston");
+        } 
+       
+        if(NewJerseyCheckBox.isSelected()==true){
              availableCities.add("New Jersey");
-       }
+        }
        
-       if(DallasCheckBox.isSelected()==true){
+        if(DallasCheckBox.isSelected()==true){
           availableCities.add("Dallas");
-       }
+        }
        
-       if(OregonCheckBox.isSelected()==true){
-          availableCities.add("Oregon");
-       }
+        if(OregonCheckBox.isSelected()==true){
+              availableCities.add("Oregon");
+        }
+      } 
        
        car1.setAvailableCities(availableCities);
        
         //Boolean to check whether a car is available
-       if(availabilityYes.isSelected()==true)
+        //radio button validation
+        if((availabilityYes.isSelected()==false)&&(availabilityNo.isSelected()==false)){
+             JOptionPane.showMessageDialog(null,"Please enable atleast 1 radio button for car availability");   
+             flag=0;
+        }
+        
+      
+      
+      
+        //passenger check radio button validation
+        
+        if((yesPassengerRadioButton.isSelected()==false)&&(noPassengerRadioButton.isSelected()==false)){
+             JOptionPane.showMessageDialog(null,"Please enable atleast 1 radio button for passenger car availability");   
+             flag=0;
+        }
+            
+         
+         if((txtNoOfSeats.getText()==null)|| (txtNoOfSeats.getText().trim().isEmpty())){
+           JOptionPane.showMessageDialog(null,"Please enter a valid seat number");   
+           flag=0;
+       }
+       
+           if((txtSerialNo.getText()==null)|| (txtSerialNo.getText().trim().isEmpty())){
+           JOptionPane.showMessageDialog(null,"Please enter a valid serial number");   
+           flag=0;
+       }
+           
+        int year= jYearChooser.getYear();
+        //To check whether a car is a passenger car or not
+      
+          
+        if(yesPassengerRadioButton.isSelected()==true)
+            car1.setIsPassengerCarAvailable("Yes");
+            
+        
+        else{
+           
+            car1.setIsPassengerCarAvailable("No");
+            
+        
+        }
+        
+         if(availabilityYes.isSelected()==true)
            car1.setCarAvailability("Yes");
        else
            car1.setCarAvailability("No");
        
-     
+       //no validation for combo box
         car1.setModelNumber(modelComboBox.getSelectedItem().toString());
       
-      
-      //To check whether a car is a passenger car or not
-      
-        String passengerCheck="Yes";
-        if(yesPassengerRadioButton.isSelected()==true)
-            car1.setIsPassengerCarAvailable(passengerCheck);
-            
-        
-        else{
-            passengerCheck="No";
-            car1.setIsPassengerCarAvailable(passengerCheck);
-            
-        
-        }
-         int year= jYearChooser.getYear();
-         car1.setManufactureYear(year);
-       
-         car1.setNoOfSeats(Integer.parseInt(txtNoOfSeats.getText()));
-        
+        car1.setCarName(txtCarName.getText());
+        car1.setCarManufacture(txtCarManufacturer.getText()); 
+        car1.setManufactureYear(year);  
+        car1.setNoOfSeats(Integer.parseInt(txtNoOfSeats.getText()));
         car1.setSerialNumber(Long.parseLong(txtSerialNo.getText()));
-       
         car1.setMaintenanceCertDate(JDateExp.getDate());
-
-        JOptionPane.showMessageDialog(this,"New car added.");
+        
+        //in collections for displaying last updated time
+        LocalDateTime now= LocalDateTime.now();  
+        cars.setCurr_dt(now);
+        
+        if(flag==1){
+         JOptionPane.showMessageDialog(this,"New car added.");
+        }
+        
         txtCarName.setText("");
         txtCarManufacturer.setText("");
         availabilityYes.setText("");
@@ -400,6 +475,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
         
         txtSerialNo.setText("");
         JDateExp.setCalendar(null);
+        
       }
       catch(Exception e){
           JOptionPane.showMessageDialog(this, e.getMessage());
@@ -435,6 +511,73 @@ public class RegisterJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_cityAvailabilityActionPerformed
 
+    private void btnUploadFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUploadFileActionPerformed
+        // TODO add your handling code here:
+        JFileChooser file = new JFileChooser();
+        file.setCurrentDirectory(new File(System.getProperty("user.home")));
+        int result = file.showSaveDialog(null);
+        if(result == JFileChooser.APPROVE_OPTION){
+        File selectedFile = file.getSelectedFile();
+        ucar1.setFilePath(selectedFile.getAbsolutePath());
+        try (BufferedReader br = Files.newBufferedReader(Paths.get(ucar1.getFilePath()),
+                StandardCharsets.US_ASCII)){
+                String line = br.readLine();
+                while (line != null){
+                    String[] attributes = line.split("//");
+                    if(attributes.length==10){
+                        for(UberCar car: cars.getCars()){
+                            if(car.getSerialNumber()==Long.parseLong(attributes[6].trim())){
+                                JOptionPane.showMessageDialog(this,"Entry with "+Long.parseLong(attributes[6].trim())+"                                     serial number already exist." );
+                                return;
+                            }                  
+                        }
+                        var car=cars.addNewCar();
+                        car.setCarName(attributes[0].trim());
+                        if(attributes[2].toLowerCase().trim().equals("yes")){
+                            car.setIsPassengerCarAvailable("Yes");
+                        }
+                        else{
+                            car.setIsPassengerCarAvailable("No");
+                        }
+                        
+                        if(attributes[3].toLowerCase().trim().equals("yes")){
+                            car.setCarAvailability("Yes");
+                        }
+                        else{
+                            car.setCarAvailability("No");
+                        }
+                        car.setCarManufacture(attributes[1].trim());
+                        car.setManufactureYear(Integer.valueOf(attributes[4].trim()));
+                        car.setNoOfSeats(Integer.parseInt(attributes[5].trim()));
+                        car.setSerialNumber(Long.parseLong(attributes[6].trim()));
+                        car.setModelNumber(attributes[7].trim());
+                        var cities =attributes[8].split(",");
+                        List<String> Cities=new ArrayList<>();
+                        for(String city: Cities){
+                            if(city == "New Jersey" || city == "Boston"
+                               || city=="Dallas" ||city == "Oregeon")
+                               Cities.add(city);
+                        }
+                        car.setAvailableCities(Cities);
+                        car.setMaintenanceCertDate(new Date(attributes[9].trim()));
+                        line = br.readLine();
+                        
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(this,"Entries in the file are incorrect");
+                    }
+                }
+                JOptionPane.showMessageDialog(this,"File has been uploaded");
+            
+        }
+        
+        catch (Exception ex) {
+                JOptionPane.showMessageDialog(this,"Error occured while reading the file.");
+            }
+        
+        
+    }//GEN-LAST:event_btnUploadFileActionPerformed
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JCheckBox BostonCheckBox;
@@ -450,6 +593,7 @@ public class RegisterJPanel extends javax.swing.JPanel {
     private javax.swing.JButton Submit;
     private javax.swing.JRadioButton availabilityNo;
     private javax.swing.JRadioButton availabilityYes;
+    private javax.swing.JButton btnUploadFile;
     private javax.swing.ButtonGroup buttonGroupRadioButtonsPassenger;
     private javax.swing.ButtonGroup buttonGroupavailability;
     private javax.swing.JButton carAvailability;
