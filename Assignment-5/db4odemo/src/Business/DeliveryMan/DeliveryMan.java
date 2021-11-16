@@ -5,15 +5,32 @@
  */
 package Business.DeliveryMan;
 
+import Business.Role.DeliverManRole;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author harold
  */
-public class DeliveryMan {
+public class DeliveryMan extends UserAccount{
     private String deliveryName;
     private String phone;
     private String namePlate;
+ 
 
+    public DeliveryMan(String userName, String password, String deliveryName, String phone, String namePlate) {
+        
+        setUsername(userName);
+        setPassword(password); 
+        setRole(new DeliverManRole());
+        
+        this.deliveryName = deliveryName;
+        this.phone = phone;
+        this.namePlate = namePlate;
+        
+    }
+
+  
     public String getDeliveryName() {
         return deliveryName;
     }

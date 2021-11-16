@@ -15,7 +15,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author MyPC1
+ * @author Neha
  */
 public class EcoSystem extends Organization{
     
@@ -24,12 +24,12 @@ public class EcoSystem extends Organization{
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private String ecosystem="test";
-    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
-
-        this.restaurantDirectory = restaurantDirectory;
-        this.customerDirectory = customerDirectory;
-        this.deliveryManDirectory = deliveryManDirectory;
-    }
+//    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
+//
+//        this.restaurantDirectory = restaurantDirectory;
+//        this.customerDirectory = customerDirectory;
+//        this.deliveryManDirectory = deliveryManDirectory;
+//    }
     
     public static EcoSystem getInstance(){
         if(business==null){
@@ -46,12 +46,60 @@ public class EcoSystem extends Organization{
     }
     private EcoSystem(){
         super(null);
-       // networkList=new ArrayList<Network>();
+        customerDirectory  = new CustomerDirectory();
+        deliveryManDirectory = new DeliveryManDirectory();
+        restaurantDirectory = new RestaurantDirectory();
+    }
+
+    public static EcoSystem getBusiness() {
+        return business;
+    }
+
+    public static void setBusiness(EcoSystem business) {
+        EcoSystem.business = business;
+    }
+
+    public RestaurantDirectory getRestaurantDirectory() {
+        return restaurantDirectory;
+    }
+
+    public void setRestaurantDirectory(RestaurantDirectory restaurantDirectory) {
+        this.restaurantDirectory = restaurantDirectory;
+    }
+
+    public CustomerDirectory getCustomerDirectory() {
+        return customerDirectory;
+    }
+
+    public void setCustomerDirectory(CustomerDirectory customerDirectory) {
+        this.customerDirectory = customerDirectory;
+    }
+
+    public DeliveryManDirectory getDeliveryManDirectory() {
+        return deliveryManDirectory;
+    }
+
+    public void setDeliveryManDirectory(DeliveryManDirectory deliveryManDirectory) {
+        this.deliveryManDirectory = deliveryManDirectory;
+    }
+
+    public String getEcosystem() {
+        return ecosystem;
+    }
+
+    public void setEcosystem(String ecosystem) {
+        this.ecosystem = ecosystem;
     }
 
     
     public boolean checkIfUserIsUnique(String userName){
        //
-       return false;
+       if(this.getUserAccountDirectory().checkIfUsernameIsUnique(userName)){
+       
+         return false;
+        }
+       return true;
     }
+    
+  
 }

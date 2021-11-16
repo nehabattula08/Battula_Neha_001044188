@@ -23,4 +23,12 @@ public class DeliveryManDirectory {
         this.deliveryList = deliveryList;
     }
     
+    public void createDeliveryMan(DeliveryMan deliveryman){
+        deliveryList.add(deliveryman);
+    }
+    
+    public void removeDeliveryMan(DeliveryMan deliverman){
+        deliveryList.remove(deliverman);
+    }
+    
 }

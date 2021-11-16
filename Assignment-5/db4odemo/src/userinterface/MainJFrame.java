@@ -89,9 +89,9 @@ public class MainJFrame extends javax.swing.JFrame {
                         .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(userNameJTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
-                            .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addComponent(logoutJButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGap(18, 18, 18)
                             .addComponent(loginJLabel)))
                     .addComponent(loginJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -109,11 +109,14 @@ public class MainJFrame extends javax.swing.JFrame {
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(loginJButton)
-                .addGap(63, 63, 63)
-                .addComponent(loginJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(logoutJButton)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(loginJLabel))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(logoutJButton)))
+                .addContainerGap(195, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -127,16 +130,19 @@ public class MainJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginJButtonActionPerformed
-        // Get user name
+        // neha
        try{ 
            
         String userName = userNameJTextField.getText();
         String password = new String(passwordField.getPassword());
-        UserAccount checkUser= new UserAccount();
-        checkUser = system.getUserAccountDirectory().authenticateUser(userName, password);
-               
-        
+        UserAccount checkUser= system.getUserAccountDirectory().authenticateUser(userName, password);  
         String hello = "Hi! ";
+        
+        if(checkUser==null){
+            JOptionPane.showMessageDialog(null, "Please enter proper credentials");
+            return;
+       }
+        
         
       if(checkUser!=null)
       {
@@ -169,12 +175,19 @@ public class MainJFrame extends javax.swing.JFrame {
        catch(Exception e){
            throw e;
        }
+       
+       loginJButton.setEnabled(false);
+       logoutJButton.setEnabled(true);
+       userNameJTextField.setEnabled(false);
+       passwordField.setEnabled(false);
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void changePane(UserAccount checkUser ){
+        
         container.add("workArea", checkUser.getRole().createWorkArea(container, checkUser, system));
         CardLayout layout = (CardLayout) container.getLayout();
         layout.next(container);
+        
     }
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
         logoutJButton.setEnabled(false);

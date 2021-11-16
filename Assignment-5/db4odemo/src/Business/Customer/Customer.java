@@ -5,22 +5,29 @@
  */
 package Business.Customer;
 
+import Business.Role.CustomerRole;
+import Business.UserAccount.UserAccount;
+
 /**
  *
  * @author harold
  */
-public class Customer {
+public class Customer extends UserAccount{
     
     private String customerName;
     private String customerAddress;
     private String mobileNumber;
-
-    public Customer(String customerName, String customerAddress, String mobileNumber) {
+ 
+    public Customer(String CustUserName, String Custpassword,String customerName, String customerAddress, String mobileNumber) {
+        
         this.customerName = customerName;
         this.customerAddress = customerAddress;
         this.mobileNumber = mobileNumber;
+        setUsername(CustUserName);
+        setPassword(Custpassword);
+        setRole(new CustomerRole());
     }
-
+    
     public String getCustomerName() {
         return customerName;
     }
@@ -45,6 +52,8 @@ public class Customer {
         this.mobileNumber = mobileNumber;
     }
     
-    
-    
+   @Override
+    public String toString() {
+        return this.customerName;
+    }
 }

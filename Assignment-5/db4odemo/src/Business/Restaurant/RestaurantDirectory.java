@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public class RestaurantDirectory {
     
-    private ArrayList <Restaurant> restaurantList;
+    private ArrayList <Restaurant> restaurantList = new ArrayList<>();
 
     public ArrayList<Restaurant> getRestaurantList() {
         return restaurantList;
@@ -23,6 +23,13 @@ public class RestaurantDirectory {
         this.restaurantList = restaurantList;
     }
     
+     public void createRestaurant(Restaurant restaurant){
+        restaurantList.add(restaurant);
+    }
+     
+     public void deleteRestaurant(Restaurant restaurant){
+         restaurantList.remove(restaurant);
+     }
     
     
     

@@ -5,6 +5,7 @@
  */
 package Business.Customer;
 
+import Business.UserAccount.UserAccount;
 import java.util.ArrayList;
 
 /**
@@ -14,14 +15,24 @@ import java.util.ArrayList;
 public class CustomerDirectory {
     
     ArrayList <Customer> customerList = new ArrayList<Customer>();
-
+    
     public ArrayList<Customer> getCustomerList() {
         return customerList;
     }
 
     public void setCustomerList(ArrayList<Customer> customerList) {
-        this.customerList = customerList;
+        this.customerList=customerList;
     }
     
+     public void createCustomer (Customer addCustomer){
+       
+          customerList.add(addCustomer);  
+        
+     }
+     
+     public void removeCustomer(Customer removeCustomer ){
+         customerList.remove(removeCustomer);
+     }
+     
     
 }
