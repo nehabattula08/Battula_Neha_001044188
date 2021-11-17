@@ -41,11 +41,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         btnManageOrder = new javax.swing.JButton();
         btnManageMenu = new javax.swing.JButton();
         btnManageRestaurant = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
 
         setLayout(new java.awt.CardLayout());
 
@@ -57,11 +57,6 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageMenu.setText("Manage Menu");
-        btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnManageMenuActionPerformed(evt);
-            }
-        });
 
         btnManageRestaurant.setText("Manage Restaurant Info");
         btnManageRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -70,49 +65,57 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnManageRestaurant)
-                    .addComponent(btnManageMenu)
-                    .addComponent(btnManageOrder))
-                .addContainerGap(621, Short.MAX_VALUE))
+                    .addComponent(btnManageOrder)
+                    .addComponent(btnManageMenu))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(167, 167, 167)
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(183, 183, 183)
                 .addComponent(btnManageOrder)
-                .addGap(34, 34, 34)
+                .addGap(37, 37, 37)
                 .addComponent(btnManageMenu)
-                .addGap(27, 27, 27)
+                .addGap(42, 42, 42)
                 .addComponent(btnManageRestaurant)
-                .addContainerGap(221, Short.MAX_VALUE))
+                .addContainerGap(187, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setRightComponent(jPanel1);
         jSplitPane1.setLeftComponent(jPanel2);
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 697, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 518, Short.MAX_VALUE)
+        );
+
+        jSplitPane1.setRightComponent(jPanel4);
 
         add(jSplitPane1, "card2");
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageOrderActionPerformed
         // TODO add your handling code here:
-        ManageRestaurantOrderJPanel manageOrder = new ManageRestaurantOrderJPanel(userProcessContainer, account,system);
-         jSplitPane1.setRightComponent(manageOrder);
-        
     }//GEN-LAST:event_btnManageOrderActionPerformed
-
-    private void btnManageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMenuActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnManageMenuActionPerformed
 
     private void btnManageRestaurantActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageRestaurantActionPerformed
         // TODO add your handling code here:
+        ManageRestaurantInfoJPanel manageRest = new ManageRestaurantInfoJPanel(userProcessContainer,system,account);
+        jSplitPane1.setRightComponent(manageRest);
+        
         
     }//GEN-LAST:event_btnManageRestaurantActionPerformed
     
@@ -121,8 +124,8 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageMenu;
     private javax.swing.JButton btnManageOrder;
     private javax.swing.JButton btnManageRestaurant;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
     // End of variables declaration//GEN-END:variables
     

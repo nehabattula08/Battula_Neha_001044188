@@ -25,8 +25,11 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     UserAccount userAccount;
     Restaurant restaurant;
     
-    public ManageRestaurantInfoJPanel() {
+    public ManageRestaurantInfoJPanel(JPanel userProcessContainer, EcoSystem ecosystem, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.ecosystem=ecosystem;
+        this.userAccount = userAccount;
     }
 
     /**
@@ -138,7 +141,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
                                 .addComponent(btnUpdate)
                                 .addGap(62, 62, 62)
                                 .addComponent(btnDelete)))))
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addContainerGap(207, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -146,8 +149,8 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtRestaurantName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -168,7 +171,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
                     .addComponent(btnDelete)
                     .addComponent(btnSave)
                     .addComponent(btnUpdate))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -182,6 +185,8 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
+        
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
 
