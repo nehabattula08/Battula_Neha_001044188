@@ -22,6 +22,13 @@ public class Menu {
         this.dishList = dishList;
     }
     
+    public void addDish(Dish dish){
+        dishList.add(dish);
+    }
+    
+    public void removeDish(Dish dish){
+        dishList.remove(dish);
+    }
     
     
 }

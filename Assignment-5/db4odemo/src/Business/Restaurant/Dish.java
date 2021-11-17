@@ -17,8 +17,11 @@ public class Dish {
         this.name = name;
         this.price = price;
     }
+
+    public Dish() {
+    }
     
-    
+   
     public String getName() {
         return name;
     }
@@ -39,7 +42,6 @@ public class Dish {
     public String toString() {
         return "Dish{" + "name=" + name + ", price=" + price + '}';
     }
-    
     
     
 }

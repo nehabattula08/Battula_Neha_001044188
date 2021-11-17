@@ -57,6 +57,11 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageMenu.setText("Manage Menu");
+        btnManageMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnManageMenuActionPerformed(evt);
+            }
+        });
 
         btnManageRestaurant.setText("Manage Restaurant Info");
         btnManageRestaurant.addActionListener(new java.awt.event.ActionListener() {
@@ -118,6 +123,13 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         
         
     }//GEN-LAST:event_btnManageRestaurantActionPerformed
+
+    private void btnManageMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageMenuActionPerformed
+        // TODO add your handling code here:
+        
+        ManageRestaurantMenuJPanel manageMenu = new ManageRestaurantMenuJPanel(userProcessContainer,system,account);
+        jSplitPane1.setRightComponent(manageMenu);
+    }//GEN-LAST:event_btnManageMenuActionPerformed
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
