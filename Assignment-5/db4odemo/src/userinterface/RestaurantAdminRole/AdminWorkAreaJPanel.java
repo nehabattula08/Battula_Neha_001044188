@@ -18,11 +18,12 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     EcoSystem system;
     UserAccount account;
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer, EcoSystem system,UserAccount account) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount account, EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
         this.system=system;
         this.account=account;
+        
         //valueLabel.setText();
     }
     
