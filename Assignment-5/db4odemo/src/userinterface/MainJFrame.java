@@ -136,7 +136,7 @@ public class MainJFrame extends javax.swing.JFrame {
         String userName = userNameJTextField.getText();
         String password = new String(passwordField.getPassword());
         UserAccount checkUser= system.getUserAccountDirectory().authenticateUser(userName, password);  
-        String hello = "Hi! ";
+      
         
         if(checkUser==null){
             JOptionPane.showMessageDialog(null, "Please enter proper credentials");
@@ -148,23 +148,19 @@ public class MainJFrame extends javax.swing.JFrame {
       {
         if(checkUser.getRole().equals(RoleType.Customer.toString())){
              changePane(checkUser);
-            hello = hello+ checkUser.getUsername();
-            
-             JOptionPane.showMessageDialog(null, hello);
+           
             
         }
         
         else if(checkUser.getRole().equals(RoleType.DeliveryMan.toString())){
             changePane(checkUser);
-            hello = hello+ checkUser.getUsername();
-             JOptionPane.showMessageDialog(null, hello);
+          
         }
             
         else if(checkUser.getRole().equals(RoleType.RestaurantAdmin.toString())){
              
              changePane(checkUser);
-             hello = hello+ checkUser.getUsername();
-              JOptionPane.showMessageDialog(null, hello);
+         
         }  
         else{
               changePane(checkUser);
