@@ -25,6 +25,7 @@ public class RestaurantDirectory {
     
      public void createRestaurant(Restaurant restaurant){
         restaurantList.add(restaurant);
+       
     }
      
      public void deleteRestaurant(Restaurant restaurant){

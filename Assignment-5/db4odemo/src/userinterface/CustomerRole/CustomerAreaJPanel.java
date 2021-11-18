@@ -24,11 +24,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount account) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
-      
+        this.ecosystem = system;
         this.userAccount = account;
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
@@ -74,21 +74,21 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(18, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPlaceOrder)
                     .addComponent(btnOrderStatus))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
+                .addGap(113, 113, 113)
                 .addComponent(btnPlaceOrder)
-                .addGap(37, 37, 37)
+                .addGap(29, 29, 29)
                 .addComponent(btnOrderStatus)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(110, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel2);

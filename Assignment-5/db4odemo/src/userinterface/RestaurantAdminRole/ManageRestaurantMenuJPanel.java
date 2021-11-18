@@ -35,12 +35,14 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         this.account = account;
         restaurant = (Restaurant) account;
       
-       Dish dish1 = new Dish("water",2.0);
+//       Dish dish1 = new Dish("water",2.0);
       // restaurant.getMenu().getDishList().add(dish1);
 //       restaurant.getMenu().getDishList().set(0, d);
-      Menu menu1 = new Menu();
-       menu1.addDish(dish1);
-      restaurant.setMenu(menu1);
+
+
+//      Menu menu1 = new Menu();
+//       menu1.addDish(dish1);
+//      restaurant.setMenu(menu1);
        displayTable();
      
 //     try{
@@ -235,9 +237,13 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         
         restaurant.getMenu().addDish(dish);
        
-        
-        system.getRestaurantDirectory().getRestaurantList().set(index, restaurant);
-        //system.getRestaurantDirectory().createRestaurant(restaurant);
+        System.out.println("hi");
+         System.out.println(index);
+         system.getRestaurantDirectory().getRestaurantList().set(index, restaurant);
+//        
+//        for(restaurant : system.getRestaurantDirectory().getRestaurantList())
+//          system.getRestaurantDirectory().getRestaurantList().add(restaurant);
+//        system.getRestaurantDirectory().createRestaurant(restaurant);
         
         
         displayTable();
