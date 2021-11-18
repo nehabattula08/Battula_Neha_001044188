@@ -46,7 +46,7 @@ public class CustomerAdminJPanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.CardLayout());
 
-        btnPlaceOrder.setText("Place Order");
+        btnPlaceOrder.setText("P1lace Order");
         btnPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPlaceOrderActionPerformed(evt);

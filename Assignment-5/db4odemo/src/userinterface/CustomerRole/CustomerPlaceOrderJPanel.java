@@ -5,9 +5,9 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
-import Business.Restaurant.Dish;
-import Business.Restaurant.Menu;
+
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import javax.swing.DefaultListModel;
@@ -28,15 +28,14 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
     EcoSystem system;
     UserAccount userAccount;
     
-    Restaurant rest1;
+    Customer customer;
         DefaultListModel<String> listModel;
-        
     public CustomerPlaceOrderJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount userAccount) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.system=system;
         this.userAccount = userAccount;
-        rest1 = (Restaurant)userAccount;
+        customer = (Customer)userAccount;
         listModel = new DefaultListModel<>();
         
        // displayTable();

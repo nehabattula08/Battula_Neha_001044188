@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
-
+    private EcoSystem ecosystem;
     private UserAccount userAccount;
     /**
      * Creates new form DoctorWorkAreaJPanel
@@ -111,15 +111,15 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
-//        CustomerPlaceOrderJPanel managecustorder = new CustomerPlaceOrderJPanel(userProcessContainer,system,account);
-//        jSplitPane1.setRightComponent(managecustorder);
+      CustomerPlaceOrderJPanel managecustorder = new CustomerPlaceOrderJPanel(userProcessContainer,ecosystem,userAccount);
+      jSplitPane1.setRightComponent(managecustorder);
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void btnOrderStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderStatusActionPerformed
         // TODO add your handling code here:
 
-//        CustomerOrderStatusJPanel managecustorder = new CustomerOrderStatusJPanel(userProcessContainer,system,account);
-//        jSplitPane1.setRightComponent(managecustorder);
+      CustomerOrderStatusJPanel managecustorder = new CustomerOrderStatusJPanel(userProcessContainer,ecosystem,userAccount);
+       jSplitPane1.setRightComponent(managecustorder);
 
     }//GEN-LAST:event_btnOrderStatusActionPerformed
 
