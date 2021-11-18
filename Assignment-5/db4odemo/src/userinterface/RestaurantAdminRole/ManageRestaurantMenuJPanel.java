@@ -70,6 +70,8 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("View Menu");
@@ -118,6 +120,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnSave.setBackground(new java.awt.Color(255, 255, 255));
         btnSave.setText("Save Dish");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -125,6 +128,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update Dish");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +136,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setBackground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -222,12 +227,17 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Please enter a valid price");
             return;
         }
-
+        int index= system.getRestaurantDirectory().getRestaurantList().indexOf(restaurant);
+        
         Dish dish = new Dish(txtName.getText(), Double.valueOf(txtPrice.getText()));
 
         // ecosystem.getItemList().addItem(item);
+        
         restaurant.getMenu().addDish(dish);
-        system.getRestaurantDirectory().createRestaurant(restaurant);
+       
+        
+        system.getRestaurantDirectory().getRestaurantList().set(index, restaurant);
+        //system.getRestaurantDirectory().createRestaurant(restaurant);
         
         
         displayTable();

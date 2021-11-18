@@ -5,24 +5,38 @@
  */
 package userinterface.CustomerRole;
 
+import Business.EcoSystem;
 import Business.Restaurant.Dish;
 import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
+import Business.UserAccount.UserAccount;
 import javax.swing.DefaultListModel;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author Vijay
  */
-public class CustomerOrderJPanel extends javax.swing.JPanel {
+public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form CustomerOrderJPanel
      */
+    
+    JPanel userProcessContainer;
+    EcoSystem system;
+    UserAccount userAccount;
+    
+    Restaurant rest1;
         DefaultListModel<String> listModel;
         
-    public CustomerOrderJPanel() {
+    public CustomerPlaceOrderJPanel(JPanel userProcessContainer, EcoSystem system, UserAccount userAccount) {
         initComponents();
+        this.userProcessContainer=userProcessContainer;
+        this.system=system;
+        this.userAccount = userAccount;
+        rest1 = (Restaurant)userAccount;
         listModel = new DefaultListModel<>();
         
        // displayTable();

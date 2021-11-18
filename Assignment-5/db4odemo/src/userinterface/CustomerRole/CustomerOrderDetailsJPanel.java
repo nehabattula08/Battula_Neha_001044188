@@ -3,31 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package userinterface.RestaurantAdminRole;
-
-import Business.EcoSystem;
-import Business.UserAccount.UserAccount;
-import javax.swing.JPanel;
+package userinterface.CustomerRole;
 
 /**
  *
  * @author Vijay
  */
-public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
+public class CustomerOrderDetailsJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageRestaurantOrderJPanel
+     * Creates new form CustomerOrderDetailsJPanel
      */
-    
-    JPanel userProcessContainer;
-    EcoSystem system;
-    UserAccount account;
-    public ManageRestaurantOrderJPanel(JPanel userProcessContainer, EcoSystem system,UserAccount account) {
+    public CustomerOrderDetailsJPanel() {
         initComponents();
-        this.userProcessContainer=userProcessContainer;
-        this.account=account;
-        this.system=system;
-        
     }
 
     /**
@@ -43,11 +31,11 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 723, Short.MAX_VALUE)
+            .addGap(0, 706, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGap(0, 485, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

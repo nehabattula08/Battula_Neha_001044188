@@ -60,6 +60,8 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
         txtPhone = new javax.swing.JTextField();
         btnUpdate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Restaurant");
@@ -93,6 +95,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
 
         jLabel4.setText("Phone Number:");
 
+        btnUpdate.setBackground(new java.awt.Color(255, 255, 255));
         btnUpdate.setText("Update Restaurant");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

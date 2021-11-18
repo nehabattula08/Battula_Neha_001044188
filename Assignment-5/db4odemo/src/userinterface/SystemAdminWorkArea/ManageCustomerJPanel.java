@@ -216,7 +216,7 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
                JOptionPane.showMessageDialog(null, "Fields cannot be empty");
                return;
              }
-         if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtCustUsername.getText())){
+         if(system.getUserAccountDirectory().checkIfUsernameIsUnique(txtCustUsername.getText())==true){
                Customer addCustomer = new Customer(txtCustUsername.getText(), txtCustPassword.getText(), txtCustName.getText(), txtCustAddress.getText(), txtCustContactNo.getText());
                
             system.getUserAccountDirectory().addUserAccount(addCustomer); 

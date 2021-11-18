@@ -1,44 +1,34 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 package userinterface.CustomerRole;
 
 import Business.EcoSystem;
-
 import Business.UserAccount.UserAccount;
-import Business.WorkQueue.WorkRequest;
-import java.awt.CardLayout;
 import javax.swing.JPanel;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author raunak
+ * @author Vijay
  */
-public class CustomerAreaJPanel extends javax.swing.JPanel {
+public class CustomerAdminJPanel extends javax.swing.JPanel {
 
-    private JPanel userProcessContainer;
-
-    private UserAccount userAccount;
     /**
-     * Creates new form DoctorWorkAreaJPanel
+     * Creates new form CustomerAdminJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
-        initComponents();
-        
-        this.userProcessContainer = userProcessContainer;
-      
-        this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
-        populateRequestTable();
-    }
-    
-    public void populateRequestTable(){
+    JPanel userProcessContainer;
+    EcoSystem system;
+    UserAccount account;
+    public CustomerAdminJPanel() {
+       initComponents();
+       this.userProcessContainer = userProcessContainer;
+        this.system=system;
+        this.account=account;
         
     }
 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,7 +69,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnPlaceOrder)
                     .addComponent(btnOrderStatus))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -88,7 +78,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnPlaceOrder)
                 .addGap(37, 37, 37)
                 .addComponent(btnOrderStatus)
-                .addContainerGap(174, Short.MAX_VALUE))
+                .addContainerGap(252, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel2);
@@ -97,11 +87,11 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
+            .addGap(0, 689, Short.MAX_VALUE)
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 440, Short.MAX_VALUE)
+            .addGap(0, 518, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(jPanel4);
@@ -111,17 +101,19 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
 
     private void btnPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPlaceOrderActionPerformed
         // TODO add your handling code here:
-//        CustomerPlaceOrderJPanel managecustorder = new CustomerPlaceOrderJPanel(userProcessContainer,system,account);
-//        jSplitPane1.setRightComponent(managecustorder);
+        CustomerPlaceOrderJPanel managecustorder = new CustomerPlaceOrderJPanel(userProcessContainer,system,account);
+        jSplitPane1.setRightComponent(managecustorder);
     }//GEN-LAST:event_btnPlaceOrderActionPerformed
 
     private void btnOrderStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOrderStatusActionPerformed
         // TODO add your handling code here:
+        
+          CustomerOrderStatusJPanel managecustorder = new CustomerOrderStatusJPanel(userProcessContainer,system,account);
+        jSplitPane1.setRightComponent(managecustorder);
 
-//        CustomerOrderStatusJPanel managecustorder = new CustomerOrderStatusJPanel(userProcessContainer,system,account);
-//        jSplitPane1.setRightComponent(managecustorder);
-
+      
     }//GEN-LAST:event_btnOrderStatusActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOrderStatus;
