@@ -4,6 +4,9 @@
  */
 package Business.WorkQueue;
 
+import Business.Customer.Customer;
+import Business.DeliveryMan.DeliveryMan;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.util.Date;
 
@@ -14,6 +17,9 @@ import java.util.Date;
 public abstract class WorkRequest {
 
     private String message;
+    private Customer customer;
+    private Restaurant restaurant;
+    private DeliveryMan deliveryMan;
     private UserAccount sender;
     private UserAccount receiver;
     private String status;
@@ -22,6 +28,42 @@ public abstract class WorkRequest {
     
     public WorkRequest(){
         requestDate = new Date();
+    }
+
+    public WorkRequest(String message, Customer customer, Restaurant restaurant, DeliveryMan deliveryMan, UserAccount sender, UserAccount receiver, String status, Date requestDate, Date resolveDate) {
+        this.message = message;
+        this.customer = customer;
+        this.restaurant = restaurant;
+        this.deliveryMan = deliveryMan;
+        this.sender = sender;
+        this.receiver = receiver;
+        this.status = status;
+        this.requestDate = requestDate;
+        this.resolveDate = resolveDate;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+    }
+
+    public DeliveryMan getDeliveryMan() {
+        return deliveryMan;
+    }
+
+    public void setDeliveryMan(DeliveryMan deliveryMan) {
+        this.deliveryMan = deliveryMan;
     }
 
     public String getMessage() {

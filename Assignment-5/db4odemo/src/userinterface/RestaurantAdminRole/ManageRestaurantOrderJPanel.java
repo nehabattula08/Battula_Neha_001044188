@@ -7,7 +7,12 @@ package userinterface.RestaurantAdminRole;
 
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
+import Business.UserAccount.UserAccountDirectory;
+import Business.WorkQueue.OrderCheckoutRequest;
+import Business.WorkQueue.WorkRequest;
+import java.util.List;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,13 +26,15 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
     EcoSystem system;
+    UserAccountDirectory userAccountList;
+    private List<WorkRequest> workRequestList;
     UserAccount account;
     public ManageRestaurantOrderJPanel(JPanel userProcessContainer, EcoSystem system,UserAccount account) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.account=account;
         this.system=system;
-        
+        displayRestaurantOrder();
     }
 
     /**
@@ -39,19 +46,95 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblRestaurantOrder = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+
+        tblRestaurantOrder.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Message", "Customer Name", "Status", "Request Date"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblRestaurantOrder);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setText("Manage Order");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 723, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(332, 332, 332)
+                        .addComponent(jLabel1)))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 508, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addGap(72, 72, 72)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(205, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable tblRestaurantOrder;
     // End of variables declaration//GEN-END:variables
+
+    private void displayRestaurantOrder() {
+        
+        try{
+            DefaultTableModel model = (DefaultTableModel) tblRestaurantOrder.getModel();
+            model.setRowCount(0);
+            workRequestList= system.getWorkQueue().getWorkRequestListRestaurant(account);
+           // OrderCheckoutRequest oc = new OrderCheckoutRequest();
+           
+            
+           // oc.getId()
+            for (WorkRequest workrequest : workRequestList) {
+             Object[] row = new Object[4];
+             row[0]= workrequest.getMessage();
+             row[1]= workrequest.getCustomer();
+             row[2]= workrequest.getStatus();
+             row[3]= workrequest.getRequestDate();
+             model.addRow(row);        
+         }
+        }    
+        
+        catch(Exception e){
+            
+            
+        }
+        
+        
+    }
 }

@@ -11,6 +11,7 @@ import Business.DeliveryMan.DeliveryManDirectory;
 import Business.Restaurant.RestaurantDirectory;
 import Business.Role.Role;
 import Business.Role.SystemAdminRole;
+import Business.WorkQueue.WorkQueue;
 import java.util.ArrayList;
 
 /**
@@ -24,6 +25,7 @@ public class EcoSystem extends Organization{
     private CustomerDirectory customerDirectory;
     private DeliveryManDirectory deliveryManDirectory;
     private String ecosystem="test";
+    private WorkQueue workQueue;
 //    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory, DeliveryManDirectory deliveryManDirectory) {
 //
 //        this.restaurantDirectory = restaurantDirectory;
@@ -49,9 +51,38 @@ public class EcoSystem extends Organization{
         customerDirectory  = new CustomerDirectory();
         deliveryManDirectory = new DeliveryManDirectory();
         restaurantDirectory = new RestaurantDirectory();
+        workQueue=new WorkQueue();
+       
     }
 
+    public WorkQueue getWorkQueue() {
+        if(workQueue==null){
+        
+        WorkQueue workqueue = new WorkQueue();
+        return workqueue;
+        }
+        else
+            return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
+
+    public EcoSystem(RestaurantDirectory restaurantDirectory, CustomerDirectory customerDirectory,                DeliveryManDirectory deliveryManDirectory, WorkQueue workQueue) {
+        this.restaurantDirectory = restaurantDirectory;
+        this.customerDirectory = customerDirectory;
+        this.deliveryManDirectory = deliveryManDirectory;
+        this.workQueue = workQueue;
+    }
+    
+    
+
     public static EcoSystem getBusiness() {
+        if(business==null){
+            business= new EcoSystem();
+        }
+        
         return business;
     }
 
