@@ -50,6 +50,8 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         tblRestaurantOrder = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 204, 204));
+
         tblRestaurantOrder.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
