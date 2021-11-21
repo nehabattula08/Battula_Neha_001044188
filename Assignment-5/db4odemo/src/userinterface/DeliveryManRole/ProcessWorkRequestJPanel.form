@@ -46,7 +46,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="backJButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnBack" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="jLabel9" min="-2" pref="700" max="-2" attributes="0"/>
                   <EmptySpace min="0" pref="104" max="32767" attributes="0"/>
@@ -73,7 +73,7 @@
                           <Component id="jTextField2" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                              <Component id="btnStatus" min="-2" max="-2" attributes="0"/>
+                              <Component id="btnPickOrder" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jTextField1" max="32767" attributes="0"/>
                       </Group>
@@ -88,7 +88,7 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="backJButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="btnBack" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -138,7 +138,7 @@
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="btnStatus" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnPickOrder" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="144" max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -150,12 +150,12 @@
             <Property name="text" type="java.lang.String" value="Restaurant Name"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="backJButton">
+        <Component class="javax.swing.JButton" name="btnBack">
           <Properties>
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backJButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBackActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
@@ -184,12 +184,12 @@
             <Property name="text" type="java.lang.String" value="ORDER DETAILS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="btnStatus">
+        <Component class="javax.swing.JButton" name="btnPickOrder">
           <Properties>
             <Property name="text" type="java.lang.String" value="Pick Order"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStatusActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPickOrderActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">

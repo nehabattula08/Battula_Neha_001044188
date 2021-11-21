@@ -48,13 +48,13 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        backJButton = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         customerNameValue = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        btnStatus = new javax.swing.JButton();
+        btnPickOrder = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         status = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -69,10 +69,10 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Restaurant Name");
 
-        backJButton.setText("Back");
-        backJButton.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backJButtonActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -86,10 +86,10 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("ORDER DETAILS");
 
-        btnStatus.setText("Pick Order");
-        btnStatus.addActionListener(new java.awt.event.ActionListener() {
+        btnPickOrder.setText("Pick Order");
+        btnPickOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnStatusActionPerformed(evt);
+                btnPickOrderActionPerformed(evt);
             }
         });
 
@@ -109,7 +109,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(backJButton)
+                .addComponent(btnBack)
                 .addGap(44, 44, 44)
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 104, Short.MAX_VALUE))
@@ -133,7 +133,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                         .addComponent(jTextField2)
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(20, 20, 20)
-                            .addComponent(btnStatus))
+                            .addComponent(btnPickOrder))
                         .addComponent(jTextField1))
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -143,7 +143,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(backJButton)
+                    .addComponent(btnBack)
                     .addComponent(jLabel9))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -180,7 +180,7 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
                         .addGap(30, 30, 30)
                         .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(btnStatus)
+                .addComponent(btnPickOrder)
                 .addContainerGap(144, Short.MAX_VALUE))
         );
 
@@ -202,34 +202,36 @@ public class ProcessWorkRequestJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void backJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backJButtonActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
 
-        DeliveryManWorkAreaJPanel deliveryManWorkAreaJPanel = new DeliveryManWorkAreaJPanel(userProcessContainer,      account, system);
+        DeliveryManWorkAreaJPanel deliveryManWorkAreaJPanel = new DeliveryManWorkAreaJPanel(userProcessContainer,           account, system);
       userProcessContainer.add("DeliveryManWorkAreaJPanel", deliveryManWorkAreaJPanel);
        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
-    }//GEN-LAST:event_backJButtonActionPerformed
+    }//GEN-LAST:event_btnBackActionPerformed
 
-    private void btnStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStatusActionPerformed
+    private void btnPickOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPickOrderActionPerformed
        if (orderRequest.getStatus().equals("Prepared")) {
             
 
-         orderRequest.setStatus("Out for delivery");
-           JOptionPane.showMessageDialog(null, "Thanks for picking up the order, please deliver it at the customer's address");
-//        } else if (workRequest.getStatus().equals("Out for delivery")) {
-//            workRequest.setStatus("Delivered");
-//            JOptionPane.showMessageDialog(null, "Thanks for Delivering the order :)");
-//        } else {
+         orderRequest.setStatus("Order is out for delivery");
+           JOptionPane.showMessageDialog(null, "Order is prepared, kindly deliver it to the customer.");
+       } else if (orderRequest.getStatus().equals("Order is out for delivery")) {
+            orderRequest.setStatus("Order delivered");
+            JOptionPane.showMessageDialog(null, "Order delivered successfully");
+        } 
+       //else {
 //            btnStatus.setVisible(false);
 //        }
 //        changeButtonText();
 //        status.setText(workRequest.getStatus());
-       }
-    }//GEN-LAST:event_btnStatusActionPerformed
+       
+
+    }//GEN-LAST:event_btnPickOrderActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton backJButton;
-    private javax.swing.JButton btnStatus;
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnPickOrder;
     private javax.swing.JTextArea customerAddressValue;
     private javax.swing.JLabel customerNameValue;
     private javax.swing.JLabel jLabel1;

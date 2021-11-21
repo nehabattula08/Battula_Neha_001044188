@@ -17,6 +17,7 @@ import java.util.Date;
 public abstract class WorkRequest {
 
     private String message;
+    private String feedback;
     private Customer customer;
     private Restaurant restaurant;
     private DeliveryMan deliveryMan;
@@ -30,7 +31,7 @@ public abstract class WorkRequest {
         requestDate = new Date();
     }
 
-    public WorkRequest(String message, Customer customer, Restaurant restaurant, DeliveryMan deliveryMan, UserAccount sender, UserAccount receiver, String status, Date requestDate, Date resolveDate) {
+    public WorkRequest(String message, Customer customer, Restaurant restaurant, DeliveryMan deliveryMan, UserAccount sender, UserAccount receiver, String status, Date requestDate, Date resolveDate, String feedback) {
         this.message = message;
         this.customer = customer;
         this.restaurant = restaurant;
@@ -40,6 +41,15 @@ public abstract class WorkRequest {
         this.status = status;
         this.requestDate = requestDate;
         this.resolveDate = resolveDate;
+        this.feedback= feedback;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 
     public Customer getCustomer() {

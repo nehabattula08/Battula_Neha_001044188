@@ -35,14 +35,16 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         this.account = account;
         restaurant = (Restaurant) account;
       
-//       Dish dish1 = new Dish("water",2.0);
-      // restaurant.getMenu().getDishList().add(dish1);
-//       restaurant.getMenu().getDishList().set(0, d);
+      Dish dish1 = new Dish("water",2.0);
+      Menu menu1 = new Menu();
+      menu1.addDish(dish1);
+      restaurant.setMenu(menu1);
+      
+      //restaurant.getMenu().getDishList().add(dish1);
+       restaurant.getMenu().getDishList().set(0, dish1);
 
 
-//      Menu menu1 = new Menu();
-//       menu1.addDish(dish1);
-//      restaurant.setMenu(menu1);
+   
        displayTable();
      
 //     try{
@@ -210,14 +212,14 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
         
-         if (txtName.getText().isEmpty() || txtName.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Kindly enter a valid price");
+         if (txtName.getText().isEmpty() || txtPrice.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Fields are empty, kindly enter a valid value.");
             return;
         }
        if(restaurant.getMenu().getDishList().size()>0){  
         for (Dish dish : restaurant.getMenu().getDishList()) {
             if (txtName.getText().equals(dish.getName())) {
-                JOptionPane.showMessageDialog(null, "Dish already exists");
+                JOptionPane.showMessageDialog(null, "This dish already exists");
                 return;
             }
         }
@@ -237,7 +239,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         
         restaurant.getMenu().addDish(dish);
        
-        System.out.println("hi");
+     
          System.out.println(index);
          system.getRestaurantDirectory().getRestaurantList().set(index, restaurant);
 //        
@@ -287,6 +289,8 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
        
         Dish d = new Dish(txtName.getText(),Double.parseDouble(txtPrice.getText()));
    
+       
+        
         restaurant.getMenu().getDishList().set(rNum, d);
         
         displayTable();
