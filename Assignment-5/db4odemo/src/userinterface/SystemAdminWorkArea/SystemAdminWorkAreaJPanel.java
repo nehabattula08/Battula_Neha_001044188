@@ -52,6 +52,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jSplitPane = new javax.swing.JSplitPane();
         jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         btnManageCustomers = new javax.swing.JButton();
         btnManageRestaurant = new javax.swing.JButton();
@@ -61,15 +62,23 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 204, 204));
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Vijay\\Desktop\\cloned project java\\Battula_Neha_001044188\\Assignment-5\\db4odemo\\admin.jpg")); // NOI18N
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 646, Short.MAX_VALUE)
+                .addGap(24, 24, 24))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 395, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 408, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jSplitPane.setRightComponent(jPanel2);
@@ -77,7 +86,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(255, 153, 153));
 
         btnManageCustomers.setBackground(new java.awt.Color(255, 255, 255));
-        btnManageCustomers.setText("Manage All Customers");
+        btnManageCustomers.setText("Manage Customers");
         btnManageCustomers.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageCustomersActionPerformed(evt);
@@ -85,7 +94,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageRestaurant.setBackground(new java.awt.Color(255, 255, 255));
-        btnManageRestaurant.setText("Manage All Restaurants");
+        btnManageRestaurant.setText("Manage Restaurants");
         btnManageRestaurant.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageRestaurantActionPerformed(evt);
@@ -93,7 +102,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
         });
 
         btnManageDelivery.setBackground(new java.awt.Color(255, 255, 255));
-        btnManageDelivery.setText("Manage All Deliveries");
+        btnManageDelivery.setText("Manage Deliveries");
         btnManageDelivery.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnManageDeliveryActionPerformed(evt);
@@ -155,6 +164,7 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnManageCustomers;
     private javax.swing.JButton btnManageDelivery;
     private javax.swing.JButton btnManageRestaurant;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane;

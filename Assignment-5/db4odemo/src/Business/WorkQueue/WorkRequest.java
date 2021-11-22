@@ -25,13 +25,13 @@ public abstract class WorkRequest {
     private UserAccount receiver;
     private String status;
     private Date requestDate;
-    private Date resolveDate;
+   
     
     public WorkRequest(){
         requestDate = new Date();
     }
 
-    public WorkRequest(String message, Customer customer, Restaurant restaurant, DeliveryMan deliveryMan, UserAccount sender, UserAccount receiver, String status, Date requestDate, Date resolveDate, String feedback) {
+    public WorkRequest(String message, Customer customer, Restaurant restaurant, DeliveryMan deliveryMan, UserAccount sender, UserAccount receiver, String status, Date requestDate, String feedback) {
         this.message = message;
         this.customer = customer;
         this.restaurant = restaurant;
@@ -40,7 +40,6 @@ public abstract class WorkRequest {
         this.receiver = receiver;
         this.status = status;
         this.requestDate = requestDate;
-        this.resolveDate = resolveDate;
         this.feedback= feedback;
     }
 
@@ -114,13 +113,5 @@ public abstract class WorkRequest {
 
     public void setRequestDate(Date requestDate) {
         this.requestDate = requestDate;
-    }
-
-    public Date getResolveDate() {
-        return resolveDate;
-    }
-
-    public void setResolveDate(Date resolveDate) {
-        this.resolveDate = resolveDate;
     }
 }

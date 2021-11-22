@@ -13,6 +13,7 @@ import Business.UserAccount.UserAccount;
 import Business.UserAccount.UserAccountDirectory;
 import Business.WorkQueue.OrderCheckoutRequest;
 import Business.WorkQueue.WorkRequest;
+import java.awt.HeadlessException;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -61,6 +62,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         btnDecline = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 204));
 
@@ -88,8 +90,12 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblRestaurantOrder);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Manage Order");
 
+        deliveryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select a delivery person" }));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Assign to a Delivery man:");
 
         btnDecline.setBackground(new java.awt.Color(255, 255, 255));
@@ -108,52 +114,57 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Select a particular row to assign a Delivery person");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(332, 332, 332)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(24, 24, 24)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 705, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jLabel2)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(67, 67, 67)
-                                .addComponent(jLabel2))
+                                .addGap(33, 33, 33)
+                                .addComponent(deliveryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(86, 86, 86)
-                                .addComponent(btnAccept)))
-                        .addGap(49, 49, 49)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnDecline)
-                            .addComponent(deliveryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(67, Short.MAX_VALUE))
+                                .addGap(64, 64, 64)
+                                .addComponent(btnAccept)
+                                .addGap(89, 89, 89)
+                                .addComponent(btnDecline)))
+                        .addGap(0, 288, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addComponent(jLabel1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 115, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2)
-                            .addComponent(deliveryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)))
+                .addGap(42, 42, 42)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel3)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAccept)
-                    .addComponent(btnDecline))
-                .addGap(66, 66, 66))
+                    .addComponent(jLabel2)
+                    .addComponent(deliveryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnDecline)
+                    .addComponent(btnAccept))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -164,7 +175,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 //        system.getWorkQueue().getWorkRequestList();
       try{
         int index= deliveryComboBox.getSelectedIndex();
-        DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index);
+        DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index-1);
         
         WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(tblRestaurantOrder.getSelectedRow(), 0);
         workRequest.setDeliveryMan(deliveryMan);
@@ -184,8 +195,28 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     private void tblRestaurantOrderMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRestaurantOrderMouseClicked
         // TODO add your handling code here:
         
-//        int row = tblRestaurantOrder.getSelectedRow();
-//        
+       int row = tblRestaurantOrder.getSelectedRow();
+      WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(row, 0);   
+      String status = workRequest.getStatus();
+      System.out.println(status);
+      String del = "Delivered";
+      String del1="Accepted";
+      String dec="Declined";
+      if(status.equalsIgnoreCase(del) || status.equalsIgnoreCase(del1) || status.equalsIgnoreCase(dec)){
+          btnAccept.setVisible(false);
+          btnDecline.setVisible(false);
+          jLabel2.setVisible(false);
+          jLabel3.setVisible(false);
+          deliveryComboBox.setVisible(false);
+      }
+      else{
+          btnAccept.setVisible(true);
+          btnDecline.setVisible(true);
+          jLabel2.setVisible(true);
+          jLabel3.setVisible(true);
+          deliveryComboBox.setVisible(true);
+      }
+          
 //        
 //        tblRestaurantOrder.getModel().getValueAt(row, WIDTH).toString();
         
@@ -193,16 +224,23 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 
     private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
         // TODO add your handling code here:
-        int index= deliveryComboBox.getSelectedIndex();
-        if(index<1){
-        DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index);
-        
+//        int index= deliveryComboBox.getSelectedIndex();
+//        if(deliveryComboBox.getSelectedItem().toString()=="Select a delvery person"){
+//            
+//        }
+//        if(index<1){
+       // DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index);
+        try{
         WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(tblRestaurantOrder.getSelectedRow(), 0);
-        workRequest.setDeliveryMan(deliveryMan);
+        workRequest.setDeliveryMan(null);
         workRequest.setStatus("Declined");
         JOptionPane.showMessageDialog(null,"Your order has been declined");
         displayRestaurantOrder();
         }
+        catch(HeadlessException e){
+            throw e;
+        }
+        
         
     }//GEN-LAST:event_btnDeclineActionPerformed
 
@@ -213,6 +251,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox<String> deliveryComboBox;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblRestaurantOrder;
     // End of variables declaration//GEN-END:variables
@@ -220,6 +259,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
     private void displayRestaurantOrder() {
         
         try{
+            
             DefaultTableModel model = (DefaultTableModel) tblRestaurantOrder.getModel();
             model.setRowCount(0);
             
