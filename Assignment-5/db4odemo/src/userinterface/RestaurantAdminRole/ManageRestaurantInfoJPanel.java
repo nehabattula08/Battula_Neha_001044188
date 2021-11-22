@@ -33,7 +33,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
         this.userProcessContainer=userProcessContainer;
         this.ecosystem=ecosystem;
         this.userAccount = userAccount;
-        //displayTable();
+      
         rest1 = (Restaurant)userAccount;
         
         UpdateARestaurant(userAccount);
@@ -175,10 +175,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null,"Please enter a valid Phone Number");   
            flag=0;  
         }
-//             if((txtUserName.getText()==null)|| (txtUserName.getText().trim().isEmpty())){
-//            JOptionPane.showMessageDialog(null,"Please enter a valid Restaurant User Name");   
-//           flag=0;  
-//        }
+
              
          if(flag==1){     
              
@@ -196,11 +193,16 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
     private void tblRestaurantMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblRestaurantMouseClicked
         // TODO add your handling code here:
         int rNum = tblRestaurant.getSelectedRow();
+        
+       if(rNum<0){
+            JOptionPane.showMessageDialog(null,"Kindly select a row");
+       }
+        
         Restaurant currentRestaurant= ecosystem.getRestaurantDirectory().getRestaurantList().get(rNum);
         txtRestaurantName.setText(tblRestaurant.getModel().getValueAt(rNum,0).toString());
         txtLocation.setText(tblRestaurant.getModel().getValueAt(rNum,1).toString());
         txtPhone.setText(tblRestaurant.getModel().getValueAt(rNum,2).toString());
-//        txtUserName.setText(tblRestaurant.getModel().getValueAt(rNum,3).toString());
+
         
     }//GEN-LAST:event_tblRestaurantMouseClicked
 
@@ -229,7 +231,7 @@ public class ManageRestaurantInfoJPanel extends javax.swing.JPanel {
                     row[0] = currentRestaurant.getRestaurantName();
                     row[1] = currentRestaurant.getLocation();
                     row[2] = currentRestaurant.getPhoneNumber();
-                    //row[3] = currentRestaurant.getUsername();
+                   
                     model.addRow(row);
                     
          }

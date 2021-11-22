@@ -11,6 +11,7 @@ import Business.WorkQueue.OrderCheckoutRequest;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import java.util.List;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
@@ -72,6 +73,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         processJButton = new javax.swing.JButton();
         refreshJButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,6 +136,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Delivery Status");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(4, 30, 870, -1));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Select a row to process the order");
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
     private void processJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_processJButtonActionPerformed
@@ -144,6 +150,10 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
       DefaultTableModel model = (DefaultTableModel) workRequestJTable.getModel();
      
      int index = workRequestJTable.getSelectedRow();
+     if(index<0){
+         JOptionPane.showMessageDialog(null, "Kindly select a row");
+     }
+     
      WorkRequest wq = (WorkRequest)workRequestJTable.getModel().getValueAt(index, 0);
      workRequestJTable.getModel().setValueAt("Delivered", index, 4);
      OrderCheckoutRequest orderCheckoutRequest;
@@ -166,6 +176,7 @@ public class DeliveryManWorkAreaJPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_refreshJButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton processJButton;

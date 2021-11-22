@@ -30,7 +30,7 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.ecosystem = system;
         this.userAccount = account;
-        //valueLabel.setText(enterprise.getName());
+       
         populateRequestTable();
     }
     
@@ -94,9 +94,9 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(178, 178, 178)
                 .addComponent(btnPlaceOrder)
-                .addGap(18, 18, 18)
+                .addGap(39, 39, 39)
                 .addComponent(btnOrderStatus)
-                .addContainerGap(336, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(jPanel2);

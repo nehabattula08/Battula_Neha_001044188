@@ -204,10 +204,7 @@ public class CustomerOrderStatusJPanel extends javax.swing.JPanel {
             model.setRowCount(0);
             workRequestJTable.getColumnModel().getColumn(0).setMinWidth(0);
             workRequestJTable.getColumnModel().getColumn(0).setMaxWidth(0);
-           // List <WorkRequest> wr  = system.getWorkQueue().getWorkRequestListCustomer(userAccount);
-            
-            
-            //txtFeedback.setText();
+         
              workRequestList= system.getWorkQueue().getWorkRequestListCustomer(userAccount);
               for (WorkRequest workrequest : workRequestList) {
              Object[] row = new Object[5];
@@ -218,8 +215,7 @@ public class CustomerOrderStatusJPanel extends javax.swing.JPanel {
              row[3]= workrequest.getStatus();
              
              if(!workrequest.getStatus().equals("Delivered")){
-                 //workRequestJTable.getColumnModel().getColumn(4).setMinWidth(0);
-                 //workRequestJTable.getColumnModel().getColumn(4).setMaxWidth(0);
+                
                  jLabel2.setVisible(false);
                  txtFeedback.setVisible(false);
                  jButton1.setVisible(false);
@@ -233,9 +229,7 @@ public class CustomerOrderStatusJPanel extends javax.swing.JPanel {
                  jLabel3.setVisible(true);
              }
               if(workrequest.getFeedback() != null)
-               row[4]= workrequest.getFeedback();
-             //   row[5]= workrequest.getFeedback();
-            
+               row[4]= workrequest.getFeedback(); 
              model.addRow(row);        
          }       
                     

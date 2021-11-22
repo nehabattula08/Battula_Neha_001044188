@@ -47,11 +47,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
    
        displayTable();
      
-//     try{
-//        displayRestaurantMenu(account);}
-//     catch(Exception e){
-//         throw e;
-//     }
+
     }
 
     /**
@@ -216,7 +212,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Fields are empty, kindly enter a valid value.");
             return;
         }
-       if(restaurant.getMenu().getDishList().size()>0){  
+       if(restaurant.getMenu()!=null && restaurant.getMenu().getDishList().size()>0){  
         for (Dish dish : restaurant.getMenu().getDishList()) {
             if (txtName.getText().equals(dish.getName())) {
                 JOptionPane.showMessageDialog(null, "This dish already exists");
@@ -235,7 +231,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
         
         Dish dish = new Dish(txtName.getText(), Double.valueOf(txtPrice.getText()));
 
-        // ecosystem.getItemList().addItem(item);
+        
         
        // restaurant.getMenu().addDish(dish);
        if(restaurant.getMenu() == null){
@@ -264,6 +260,12 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
     private void tblMenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblMenuMouseClicked
         // TODO add your handling code here:
          int rNum = tblMenu.getSelectedRow();
+         
+        
+       if(rNum<0){
+            JOptionPane.showMessageDialog(null,"Kindly select a row");
+       }
+         
         // Restaurant= system.getRestaurantDirectory().getRestaurantList().get(rNum);
         txtName.setText(tblMenu.getModel().getValueAt(rNum,0).toString());
         txtPrice.setText(tblMenu.getModel().getValueAt(rNum,1).toString());
@@ -350,7 +352,7 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
          Menu menu = restaurant.getMenu();
         DefaultTableModel model = (DefaultTableModel) tblMenu.getModel();
         model.setRowCount(0);
-        
+        if(menu!=null){
           for(Dish dish: menu.getDishList()){
              Object[] row = new Object[2];
               
@@ -361,22 +363,10 @@ public class ManageRestaurantMenuJPanel extends javax.swing.JPanel {
                     
            }
          }
+       }
     catch(Exception e){
          throw e;
      }
    }     
     
-//    private void displayRestaurantMenu(UserAccount account) {
-//      try{
-//        for(Restaurant currentRestaurant: system.getRestaurantDirectory().getRestaurantList()){
-//             if(account.getUsername().equals(currentRestaurant.getUsername())){             
-//              displayTable(currentRestaurant);
-//        }
-//      }
-//    }
-//    catch(Exception e){
-//        throw e;
-//    }
-//    
-//}
 }

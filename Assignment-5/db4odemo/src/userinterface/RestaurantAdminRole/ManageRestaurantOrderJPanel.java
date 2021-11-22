@@ -175,6 +175,11 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 //        system.getWorkQueue().getWorkRequestList();
       try{
         int index= deliveryComboBox.getSelectedIndex();
+        if(index<0){
+             JOptionPane.showMessageDialog(null,"Kindly select a row"); 
+        }
+        
+        if(index>=0){
         DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index-1);
         
         WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(tblRestaurantOrder.getSelectedRow(), 0);
@@ -182,7 +187,9 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         workRequest.setStatus("Accepted");
         JOptionPane.showMessageDialog(null,"Your order has been accepted");
         displayRestaurantOrder();
-      }
+       }
+      
+      }  
       catch(Exception e){
           throw e;
       }
@@ -196,6 +203,9 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         
        int row = tblRestaurantOrder.getSelectedRow();
+       if(row<0){
+            JOptionPane.showMessageDialog(null,"Kindly select a row");
+       }
       WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(row, 0);   
       String status = workRequest.getStatus();
       System.out.println(status);
@@ -224,12 +234,7 @@ public class ManageRestaurantOrderJPanel extends javax.swing.JPanel {
 
     private void btnDeclineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeclineActionPerformed
         // TODO add your handling code here:
-//        int index= deliveryComboBox.getSelectedIndex();
-//        if(deliveryComboBox.getSelectedItem().toString()=="Select a delvery person"){
-//            
-//        }
-//        if(index<1){
-       // DeliveryMan deliveryMan = system.getDeliveryManDirectory().getDeliveryList().get(index);
+
         try{
         WorkRequest workRequest=(WorkRequest) tblRestaurantOrder.getModel().getValueAt(tblRestaurantOrder.getSelectedRow(), 0);
         workRequest.setDeliveryMan(null);

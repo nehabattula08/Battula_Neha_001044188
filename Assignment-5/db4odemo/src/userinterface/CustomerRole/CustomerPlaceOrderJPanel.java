@@ -55,7 +55,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
         this.system=system;
         this.userAccount = userAccount;
         customer = (Customer)userAccount;
-        //txtQuantity.setVisible(false);
+      
         restdir= system.getRestaurantDirectory();
         priceList = new ArrayList<>();
         quantityList = new ArrayList<>();
@@ -74,17 +74,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
     }
     
     private void populateTotalPrice() {
-//        double total = 0.0;
-//        cartTable.setRowCount(0);
-//        for (ItemWithQuantity itemWithQuantity : itemsWithQuantityList) {
-//            Object[] row = new Object[cartTable.getColumnCount()];
-//            row[0] = itemWithQuantity;
-//            row[1] = itemWithQuantity.getQuantity();
-//            row[2] = itemWithQuantity.getItem().getPrice() * itemWithQuantity.getQuantity();
-//            total += itemWithQuantity.getItem().getPrice() * itemWithQuantity.getQuantity();
-//            cartTable.addRow(row);
-//        }
-//        totalPrice.setText(total + "");
+
     }
 
     /**
@@ -222,7 +212,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
-                                .addComponent(restComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(restComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(275, 275, 275)
@@ -261,17 +251,8 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
         try{
         DefaultTableModel tblModel = (DefaultTableModel) tblOrder.getModel();
 //      get row data from table
-   //txtName.setText(tblMenu.getModel().getValueAt(rNum,0).toString());
-        //txtPrice.setText(tblMenu.getModel().getValueAt(rNum,1).toString());
-		
-		
-		
-       /* String name = tblModel.getValueAt(tblOrder.getSelectedRow(), 0).toString();
-        String price = tblModel.getValueAt(tblOrder.getSelectedRow(), 0).toString();
-        double d = Double.parseDouble(price);
-        Dish dish= new Dish();
-        dish.setName(name);
-        dish.setPrice(d);*/
+
+
        Dish dish = (Dish) tblModel.getValueAt(tblOrder.getSelectedRow(), 0);
         tblOrder.getColumnModel().getColumn(0).setMinWidth(0);
             tblOrder.getColumnModel().getColumn(0).setMaxWidth(0);
@@ -301,36 +282,14 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
 
                     }
                 }
-          
-       
-        
-    
-        //listModel.addElement(name);
-        //listModel.addElement(name);
-//        jList1.setModel(listModel);
-        //Double price;
-//         price = (Double)tblOrder.getValueAt(tblOrder.getSelectedRow(), 1);
-//         
-       // Double price1 = (Double)price;
-//        priceList.add(price);
-//        calculateTotal();
-//        
      
-//      set data from table to textfields
-//        jTextFieldId.setText(id);
-//        jTextFieldName.setText(name);
-//        jTextFieldUserName.setText(username);
-//        jTextFieldAddress.setText(address);
-//        jTextFieldContact.setText(contact);
-
-
 
         }
         catch(Exception e){
             throw e;
         }
     }//GEN-LAST:event_tblOrderMouseClicked
-  //private int index = -1;
+
   
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -382,13 +341,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
         }
          
            JOptionPane.showMessageDialog(null, "Ordered has been placed successfully");
-//            OrderStatusJPanel orderStatusJPanel = new OrderStatusJPanel(userProcessContainer, ecosystem, customer);
-//            userProcessContainer.add("OrderStatusJPanel", orderStatusJPanel);
-          
-//            CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-//            layout.next(userProcessContainer);
-//        populateItemsWithQuantityTable();
-        
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void displayTable(){
@@ -423,8 +376,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
     private void restComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_restComboBoxActionPerformed
         // TODO add your handling code here:
           index = restComboBox.getSelectedIndex();
-        //clear of the selected items
-//        itemsWithQuantityList.clear();
+
         displayTable();
     }//GEN-LAST:event_restComboBoxActionPerformed
 
@@ -449,30 +401,7 @@ public class CustomerPlaceOrderJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtPrice;
     // End of variables declaration//GEN-END:variables
 
-//   private void displayMenu(ArrayList<Restaurant> restaurantList) {
-//       try{
-//        
-//           
-//        Menu menu = restaurant.getMenu();
-//        DefaultTableModel model = (DefaultTableModel) tblOrder.getModel();
-//        
-//        
-//        model.setRowCount(0);
-//        
-//          for(Dish dish: menu.getDishList()){
-//             Object[] row = new Object[2];
-//              
-//                    row[0] = dish.getName();
-//                    row[1] = dish.getPrice();
-//                 
-//                    model.addRow(row);
-//                    
-//           }
-//         }
-//    catch(Exception e){
-//         throw e;
-//     }
-//    }
+
 
     private void fillCombobox(ArrayList<Restaurant> restaurantList) {
        for (Restaurant restaurant : restaurantList) {
